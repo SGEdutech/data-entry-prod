@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Add a event</title>
+</head>
+<body>
+
+<h1 class="center-align">Add a event</h1>
+
+<div class="row">
+    <form class="col s12" method="post" action="http://localhost:6868/event" enctype="multipart/form-data">
+
+        <div class="input-field col s6">
+            <input name="name" id="name" type="text" class="validate">
+            <label for="name">Name</label>
+        </div>
+
+        <div class="input-field col s6">
+            <input name="targetAge" id="targetAge" type="text" class="validate">
+            <label for="targetAge">Target Age</label>
+        </div>
+
+        <div class="input-field col s12">
+            <input name="description" id="description" type="text" class="validate">
+            <label for="description">Description</label>
+        </div>
+
+        <h4 class="col s12">Duration:</h4>
+
+        <input name="fromDate" type="text" class="datepicker col s5">
+
+        <p class="col s2 center-align">To</p>
+
+        <input name="toDate" type="text" class="datepicker col s5">
+
+
+        <h4 class="col s12">Timing:</h4>
+        <input name="fromTime" type="text" class="timepicker col s5" placeholder="Start">
+        <p class="col s2 center-align">To</p>
+        <input name="toTime" type="text" class="timepicker col s5" placeholder="End">
+
+        <h4 class="col s12">Location:</h4>
+
+        <div class="input-field col s4">
+            <input name="addressLine1" id="address_line_1" type="text" class="validate">
+            <label for="address_line_1">Address Line 1</label>
+        </div>
+
+        <div class="input-field col s4">
+            <input name="addressLine2" id="address_line_2" type="text" class="validate">
+            <label for="address_line_2">Address Line 1</label>
+        </div>
+
+        <div class="input-field col s4">
+            <input name="district" id="district" type="text" class="validate">
+            <label for="district">District</label>
+        </div>
+
+        <div class="input-field col s4">
+            <input name="city" id="city" type="text" class="validate">
+            <label for="city">City</label>
+        </div>
+
+        <div class="input-field col s4">
+            <input name="state" id="state" type="text" class="validate">
+            <label for="state">State</label>
+        </div>
+
+        <div class="input-field col s4">
+            <input name="country" id="country" type="text" class="validate">
+            <label for="country">Country</label>
+        </div>
+
+        <div class="input-field col s4">
+            <input name="pin" id="pin" type="number" class="validate">
+            <label for="pin">Pin</label>
+        </div>
+
+        <button class="btn waves-effect waves-light col s12 center-align" type="submit">Submit
+            <i class="material-icons right">send</i>
+        </button>
+
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="code.js"></script>
+</body>
+</html>
