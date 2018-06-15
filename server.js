@@ -14,6 +14,8 @@ const routes = {
 
 const app = express();
 
+app.get('/', (req, res) => res.redirect('./app/maintenance.html'))
+
 app.use('/app', express.static(path.join(__dirname, 'public')));
 
 app.get('/school', (req, res) => {
