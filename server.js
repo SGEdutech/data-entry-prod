@@ -4,6 +4,7 @@ const cors = require('cors');
 const PORT = require('./config').SERVER.PORT;
 const storageEngion = require('./storage-engine');
 require('./database/connection');
+const winston = require('winston');
 
 const routes = {
     blog: require('./database/api/blog'),
@@ -13,25 +14,29 @@ const routes = {
     user: require('./database/api/user')
 };
 
+//by default logger exit on error, if you want to change it, add a key:value while creating logger
+//{ exitOnError: true }
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    transports: [
+        //
+        // - Write to all logs with level `info` and below to `combined.log`
+        // - Write all logs error (and below) to `error.log`.
+        //
+        new winston.transports.File({filename: 'error.log', level: 'error'}),
+        new winston.transports.File({filename: 'combined.log'})
+    ]
+});
+
+
+logger.on('error', function (err) {
+    console.log(err)
+});
+
 const app = express();
 
 app.use(cors());
-
-app.get('/', (req, res) => res.redirect('./app/maintenance.html'));
-
-app.use('/app', express.static(path.join(__dirname, 'public')));
-
-app.get('/school', (req, res) => {
-    res.redirect('./app/school.html');
-});
-
-app.get('/event', (req, res) => {
-    res.redirect('./app/event.html');
-});
-
-app.get('/tuition', (req, res) => {
-    res.redirect('./app/tuition.html');
-});
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));

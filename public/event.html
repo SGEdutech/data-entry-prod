@@ -38,6 +38,26 @@
             <label for="description">Description</label>
         </div>
 
+        <div class="input-field col s6">
+            <input name="organiserName" id="organiserName" type="text" class="validate">
+            <label for="organiserName">Organiser Name</label>
+        </div>
+
+        <div class="input-field col s6">
+            <input name="organiserPhone" id="organiserPhone" type="text" class="validate">
+            <label for="organiserPhone">Organiser Phone</label>
+        </div>
+
+        <div class="input-field col s6">
+            <input name="organiserEmail" id="organiserEmail" type="text" class="validate">
+            <label for="organiserEmail">Organiser Email</label>
+        </div>
+
+        <div class="input-field col s6">
+            <input name="website" id="website" type="text" class="validate">
+            <label for="website">Website</label>
+        </div>
+
         <h4 class="col s12">Duration:</h4>
 
         <input name="fromDate" type="text" class="datepicker col s5">
@@ -89,7 +109,21 @@
             <label for="pin">Pin</label>
         </div>
 
-        <button class="btn waves-effect waves-light col s12 center-align" type="submit">Submit
+        <div class="input-field col s4">
+            <h6>Cover image</h6>
+            <input name="img_coverPic" id="img_coverPic" type="file" class="validate">
+        </div>
+
+        <div class="input-field col s4">
+            <h6>Gallery images</h6>
+            <span id="responce">
+                <input name="imgBox0" id="imgBox0" type="file" class="validate">
+            </span>
+
+            <button onclick="addNextImg()">+</button>
+        </div>
+
+        <button class="btn waves-effect waves-light col s12 center-align" type="" onclick="addObj()">Submit
             <i class="material-icons right">send</i>
         </button>
 
@@ -98,6 +132,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script src="code.js"></script>
+<script src="assets/js/code.js"></script>
+<script src="assets/js/event.js"></script>
 </body>
 </html>

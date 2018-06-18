@@ -23,113 +23,212 @@
     <h1 class="center-align">Add a tuition</h1>
 
     <div class="row">
-        <form id="the_form" class="col s12" method="post" action="/tuition" enctype="multipart/form-data">
+        <form id="the_form" class="col s12" method="post" action="http://localhost:6868/tuition"
+              enctype="multipart/form-data">
 
             <div class="input-field col s6">
-                <input name="name" id="name" type="text" class="validate">
-                <label for="name">Name</label>
+                <input name="name" id="name" type="text" class="validate" required>
+                <label for="name">Institute Name <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s6">
-                <input name="description" id="description" type="text" class="validate">
-                <label for="description">Discription</label>
+                <select id="facilities" name="facilities" multiple>
+                    <option value="" disabled>Choose your option</option>
+                    <option value="Library/Study Area">Library/Study Area</option>
+                    <option value="Smart Classes">Smart Classes</option>
+                    <option value="Study Material">Study Material</option>
+                    <option value="AC Classes">AC Classes</option>
+                    <option value="Internet/WIFI">Internet/WIFI</option>
+                    <option value="Transport">Transport</option>
+                    <option value="E-Learning">E-Learning</option>
+                </select>
+                <label for="facilities">Facilities</label>
+            </div>
+
+            <div class="input-field col s6">
+                <select id="category" name="category" multiple>
+                    <option value="" disabled>Choose your option</option>
+                    <option value="Library/Study Area">Tuition Centers</option>
+                    <option value="Coaching Centers">Coaching Centers</option>
+                    <option value="Enhanced Learning">Enhanced Learning</option>
+                    <option value="Hobby Centers">Hobby Centers</option>
+                    <option value="Sports Center">Sports Center</option>
+                    <option value="Education Companies">Education Companies</option>
+                </select>
+                <label for="category">Category <i class="red-text accent-3">*</i></label>
+            </div>
+
+            <div class="input-field col s12">
+                <input name="description" id="description" type="text" class="validate" required>
+                <label for="description">Description <i class="red-text accent-3">*</i></label>
+            </div>
+
+            <h4 class="col s12">Age Group:</h4>
+
+            <div class="input-field col s6">
+                <input name="fromAge" id="from_age" type="number" class="validate" required>
+                <label for="from_age">From <i class="red-text accent-3">*</i></label>
+            </div>
+
+            <div class="input-field col s6">
+                <input name="toAge" id="to_age" type="number" class="validate" required>
+                <label for="to_age">To <i class="red-text accent-3">*</i></label>
             </div>
 
             <h4 class="col s12">Location:</h4>
 
             <div class="input-field col s4">
-                <input name="addressLine1" id="address_line_1" type="text" class="validate">
-                <label for="address_line_1">Address Line 1</label>
+                <input name="addressLine1" id="address_line_1" type="text" class="validate" required>
+                <label for="address_line_1">Address Line 1 <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s4">
-                <input name="addressLine2" id="address_line_2" type="text" class="validate">
-                <label for="address_line_2">Address Line 1</label>
+                <input name="addressLine2" id="address_line_2" type="text" class="validate" required>
+                <label for="address_line_2">Address Line 2 <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s4">
-                <input name="district" id="district" type="text" class="validate">
-                <label for="district">District</label>
+                <input name="city" id="city" type="text" class="validate" required>
+                <label for="city">City <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s4">
-                <input name="city" id="city" type="text" class="validate">
-                <label for="city">City</label>
+                <input name="state" id="state" type="text" class="validate" required>
+                <label for="state">State <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s4">
-                <input name="state" id="state" type="text" class="validate">
-                <label for="state">State</label>
+                <input name="country" id="country" type="text" value="India" class="validate" required>
+                <label for="country">Country <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s4">
-                <input name="country" id="country" type="text" class="validate">
-                <label for="country">Country</label>
+                <input name="pin" id="pin" type="number" class="validate" required>
+                <label for="pin">Pin <i class="red-text accent-3">*</i></label>
             </div>
 
-            <div class="input-field col s4">
-                <input name="pin" id="pin" type="number" class="validate">
-                <label for="pin">Pin</label>
-            </div>
+            <h4 class="col s12">Days of operation: <i class="red-text accent-3">*</i></h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Closed</th>
+                </tr>
+                </thead>
 
-            <h4 class="col s12">Days of operation:</h4>
-
-            <div class="input-field col s5">
-                <select name="fromDay" id="from_day">
-                    <option value="" disabled selected>From</option>
-                    <option value="Sunday">Sunday</option>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                </select>
-                <label for="from_day">From</label>
-            </div>
-
-            <p class="center-align col s2">To</p>
-
-            <div class="input-field col s5">
-                <select name="toDay" id="to_day">
-                    <option value="" disabled selected>To</option>
-                    <option value="Sunday">Sunday</option>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                </select>
-                <label for="to_day">To</label>
-            </div>
-
-
-            <h4 class="col s12">Timing:</h4>
-            <input name="fromTime" type="text" class="timepicker col s5" placeholder="Start">
-            <p class="col s2 center-align">To</p>
-            <input name="toTime" type="text" class="timepicker col s5" placeholder="End">
+                <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td id="monFrom"><input name="day_monday_from" type="text" class="timepicker col s5"
+                                            placeholder="Start" required></td>
+                    <td id="monTo"><input name="day_monday_to" type="text" class="timepicker col s5" placeholder="End"
+                                          required>
+                    </td>
+                    <td><label>
+                        <input type="checkbox" class="filled-in" id="cboxMon"/>
+                        <span></span>
+                    </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td id="tueFrom"><input name="day_tuesday_from" type="text" class="timepicker col s5"
+                                            placeholder="Start" required></td>
+                    <td id="tueTo"><input name="day_tuesday_to" type="text" class="timepicker col s5" placeholder="End"
+                                          required>
+                    </td>
+                    <td><label>
+                        <input type="checkbox" class="filled-in" id="cboxTues"/>
+                        <span></span>
+                    </label></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td id="wedFrom"><input name="day_wednesday_from" type="text" class="timepicker col s5"
+                                            placeholder="Start" required></td>
+                    <td id="wedTo"><input name="day_wednesday_to" type="text" class="timepicker col s5"
+                                          placeholder="End" required></td>
+                    <td><label>
+                        <input type="checkbox" class="filled-in" id="cboxWed"/>
+                        <span></span>
+                    </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td id="thrFrom"><input name="day_thursday_from" type="text" class="timepicker col s5"
+                                            placeholder="Start" required></td>
+                    <td id="thrTo"><input name="day_thursday_to" type="text" class="timepicker col s5"
+                                          placeholder="End" required></td>
+                    <td><label>
+                        <input type="checkbox" class="filled-in" id="cboxThr"/>
+                        <span></span>
+                    </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td id="friFrom"><input name="day_friday_from" type="text" class="timepicker col s5"
+                                            placeholder="Start" required></td>
+                    <td id="friTo"><input name="day_friday_to" type="text" class="timepicker col s5" placeholder="End"
+                                          required>
+                    </td>
+                    <td><label>
+                        <input type="checkbox" class="filled-in" id="cboxFri"/>
+                        <span></span>
+                    </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td id="satFrom"><input name="day_saturday_from" type="text" class="timepicker col s5"
+                                            placeholder="Start" required></td>
+                    <td id="satTo"><input name="day_saturday_to" type="text" class="timepicker col s5"
+                                          placeholder="End" required></td>
+                    <td><label>
+                        <input type="checkbox" class="filled-in" id="cboxSat"/>
+                        <span></span>
+                    </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td id="sunFrom"><input name="day_sunday_from" type="text" class="timepicker col s5"
+                                            placeholder="Start" required></td>
+                    <td id="sunTo"><input name="day_sunday_to" type="text" class="timepicker col s5" placeholder="End"
+                                          required>
+                    </td>
+                    <td><label>
+                        <input type="checkbox" class="filled-in" id="cboxSun"/>
+                        <span></span>
+                    </label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
             <h4 class="col s12">Contact:</h4>
 
             <div class="input-field col s4">
-                <input name="contactNumber1" id="contactNumber1" type="number" class="validate">
-                <label for="contactNumber1">Contact Number 1</label>
+                <input name="contactPerson" id="contact_person" type="text" class="validate" required>
+                <label for="contact_person">Contact Person <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s4">
-                <input name="contactNumber2" id="contactNumber2" type="number" class="validate">
-                <label for="contactNumber2">Contact Number 2</label>
+                <input name="primaryNumber" id="primary_number" type="number" class="validate" required>
+                <label for="primary_number">Primary Number <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s4">
-                <input name="contactNumber3" id="contactNumber3" type="number" class="validate">
-                <label for="contactNumber3">Contact Number 3</label>
+                <input name="secondaryNumber" id="secondary_number" type="number" class="validate">
+                <label for="secondary_number">Secondary Number</label>
             </div>
 
             <div class="input-field col s4">
-                <input name="email" id="email" type="email" class="validate">
-                <label for="email">Email</label>
+                <input name="email" id="email" type="email" class="validate" required>
+                <label for="email">Email <i class="red-text accent-3">*</i></label>
             </div>
 
             <div class="input-field col s4">
@@ -165,8 +264,13 @@
                     <input type="file" name="tuitionCoverPic">
                 </div>
                 <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload profile picture">
+                    <input class="file-path validate" type="text" placeholder="Maximum 1 MB">
                 </div>
+            </div>
+
+            <div class="input-field col s4">
+                <input name="signedBy" id="signed_by" type="text" class="validate">
+                <label for="signed_by">Signed By</label>
             </div>
 
             <button class="btn waves-effect waves-light col s12 center-align" type="submit">Submit
@@ -180,6 +284,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script src="code.js"></script>
+<script src="assets/js/code.js"></script>
+<script src="assets/js/tuition.js"></script>
 </body>
 </html>

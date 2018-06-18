@@ -6,9 +6,15 @@ const ContactSchema = secondarySchemas.ContactSchema;
 const ReviewSchema = secondarySchemas.ReviewSchema;
 const GallerySchema = secondarySchemas.GallerySchema;
 const CourseSchema = secondarySchemas.CourseSchema;
+const TeamSchema = secondarySchemas.TeamSchema;
+const FacilitiesAndBraggingSchema = secondarySchemas.FacilitiesAndBraggingSchema;
+const TimeAndDateSchema = secondarySchemas.TimeAndDateSchema;
 
 const TuitionSchema = new Schema({
     name: String,
+    category: String,
+    fromAge: Number,
+    toAge: Number,
     addressLine1: String,
     addressLine2: String,
     city: String,
@@ -16,29 +22,27 @@ const TuitionSchema = new Schema({
     state: String,
     country: String,
     pin: Number,
-    fromTime: String,
-    toTime: String,
-    fromDay: String,
-    toDay: String,
-    team: [String],  //Make schema
+    dayAndTimeOfOperation: [TimeAndDateSchema],
+    team: [TeamSchema],
     description: String,
-    contactNumber1: Number,
-    contactNumber2: Number,
-    contactNumber3: Number,
+    contactPerson: String,
+    primaryNumber: Number,
+    secondaryNumber: Number,
     email: String,
     website: String,
     fbLink: String,
-    twitter: String,
+    twitterLink: String,
     youtubeLink: String,
     instaLink: String,
     facilities: String,   // image name discription array  // drop down
-    coverPic: String,
+    img_coverPic: String,
     gallery: [GallerySchema],
-    bragging: [String],   // mutiple
+    bragging: [FacilitiesAndBraggingSchema],
     courses: [CourseSchema],
     reviews: [ReviewSchema],
     views: Number,
-    bookmarks: Number
+    bookmarks: Number,
+    signedBy: String
 });
 
 const Tuition = mongoose.model('tuition', TuitionSchema);

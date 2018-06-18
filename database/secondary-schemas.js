@@ -20,19 +20,31 @@ const ReviewSchema = new Schema({
 
 const GallerySchema = new Schema({
     title: String,
-    path: String
+    img_path: String
 });
 
 const CourseSchema = new Schema({
     title: String,
     duration: String,
     fee: Number,
-    startDate: Date
+    nextBatch: Date
 });
 
 const FacilitiesAndBraggingSchema = new Schema({
     title: String,
-    image: String
+    img_path: String
+});
+
+const TeamSchema = new Schema({
+    name: String,
+    description: String,
+    img_path: String
+});
+
+const TimeAndDateSchema = new Schema({
+    day: String,
+    from: String,
+    to: String
 });
 
 exports = module.exports = {
@@ -41,5 +53,7 @@ exports = module.exports = {
     ReviewSchema,
     GallerySchema,
     CourseSchema,
-    FacilitiesAndBraggingSchema
+    FacilitiesAndBraggingSchema,
+    TeamSchema,
+    TimeAndDateSchema
 };
