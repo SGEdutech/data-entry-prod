@@ -14,7 +14,14 @@
 <h1 class="center-align">Add a event</h1>
 
 <div class="row">
-    <form class="col s12" method="post" action="/event" enctype="multipart/form-data">
+    <form id="the_form" class="col s12" method="post" action="/event" enctype="multipart/form-data">
+
+        <div id="school_added_modal" class="modal">
+            <div class="modal-content">
+                <h4>Event Added</h4>
+                <p>Keep going</p>
+            </div>
+        </div>
 
         <div class="input-field col s6">
             <input name="name" id="name" type="text" class="validate">
