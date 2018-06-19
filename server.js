@@ -40,7 +40,7 @@ app.use(cors());
 
 app.use('/app', express.static(path.join(__dirname, 'public')));
 
-app.get('/tuition', (req, res) => res.redirect('/app/tuition.html'));
+app.get('/add/tuition', (req, res) => res.redirect('/app/tuition.html'));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
