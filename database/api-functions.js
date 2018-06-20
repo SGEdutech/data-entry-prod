@@ -37,31 +37,6 @@ class databaseAPI {
             let deletedRow;
             this.model.findOne(searchParameter)
                 .then(collectionToBeDeleted => {
-
-                    //
-                    //for deleting images from server file system
-
-                    //if image path is not nested. Example- img_coverPic
-                    Object.keys(collectionToBeDeleted).forEach((a) => {
-                       if(a.startsWith('img_')){
-                           deleteFile(collectionToBeDeleted[a])
-                       }
-                    });
-                    //finding nested images. Example - gallery
-                    collectionToBeDeleted.forEach((item) => {
-                        if (typeof item === "object") {
-                            Object.keys(item).forEach((nestedKey) => {
-                                if (nestedKey.startsWith('img_path')) {
-                                    deleteFile(collectionToBeDeleted[item][nestedKey])
-                                }
-                            })
-                        }
-                    });
-
-
-                    //
-                    //
-
                     deletedRow = collectionToBeDeleted;
                     return this.model.findOneAndRemove(searchParameter)
                 })
