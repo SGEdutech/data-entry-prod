@@ -18,6 +18,7 @@ form.submit(e => {
         processData: false,
         data: formData,
         success: data => {
+            $('input').val('');
             instance.open();
         },
         error: err => console.error(err)
