@@ -42,7 +42,8 @@ const TuitionSchema = new Schema({
     reviews: [ReviewSchema],
     views: Number,
     bookmarks: Number,
-    signedBy: String
+    signedBy: String,
+    updated: { type: Date, default: Date.now }
 });
 
 const Tuition = mongoose.model('tuition', TuitionSchema);
